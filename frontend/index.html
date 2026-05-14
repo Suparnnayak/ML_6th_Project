@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,9 +71,17 @@
         }
 
         @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(50px, 50px) scale(1.1); }
-            100% { transform: translate(-30px, 80px) scale(0.9); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(50px, 50px) scale(1.1);
+            }
+
+            100% {
+                transform: translate(-30px, 80px) scale(0.9);
+            }
         }
 
         /* Navigation */
@@ -233,7 +242,7 @@
         .search-btn:active {
             transform: translateY(0);
         }
-        
+
         .search-btn:disabled {
             opacity: 0.7;
             cursor: not-allowed;
@@ -294,7 +303,7 @@
             transform: translateY(-5px);
             background: var(--card-hover-bg);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255,255,255,0.2);
+            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .course-card:hover::before {
@@ -414,15 +423,29 @@
 
         /* Animations */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
+
         .loader {
             display: none;
             border: 3px solid rgba(255, 255, 255, 0.1);
@@ -432,28 +455,37 @@
             height: 20px;
             animation: spin 1s linear infinite;
         }
-        
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: var(--bg-dark);
         }
+
         ::-webkit-scrollbar-thumb {
             background: rgba(255, 255, 255, 0.2);
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
+
 <body>
     <div class="bg-shape shape-1"></div>
     <div class="bg-shape shape-2"></div>
@@ -469,15 +501,19 @@
 
     <div class="container">
         <header class="hero">
-            <h1>Discover Your Next <br><span style="color: transparent; background-clip: text; -webkit-background-clip: text; background-image: linear-gradient(to right, #a78bfa, #f472b6);">Learning Adventure</span></h1>
-            <p>Our intelligent recommendation engine analyzes your interests to find the perfect Coursera courses tailored just for you.</p>
+            <h1>Discover Your Next <br><span
+                    style="color: transparent; background-clip: text; -webkit-background-clip: text; background-image: linear-gradient(to right, #a78bfa, #f472b6);">Learning
+                    Adventure</span></h1>
+            <p>Our intelligent recommendation engine analyzes your interests to find the perfect Coursera courses
+                tailored just for you.</p>
         </header>
 
         <div class="search-container">
             <form id="searchForm" class="search-form">
                 <div class="input-group">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="courseInput" class="search-input" placeholder="e.g., Machine Learning, Python, Data Science" required autocomplete="off">
+                    <input type="text" id="courseInput" class="search-input"
+                        placeholder="e.g., Machine Learning, Python, Data Science" required autocomplete="off">
                 </div>
                 <button type="submit" id="searchBtn" class="search-btn">
                     <span id="btnText"><i class="fas fa-magic"></i> Find Courses</span>
@@ -495,11 +531,15 @@
     <footer>
         <div class="footer-content">
             <p><strong>A project by Suparn Nayak</strong></p>
-            <p>This recommendation engine uses TF-IDF vectorization and cosine similarity to suggest the top 10 courses based on your search criteria.</p>
+            <p>This recommendation engine uses TF-IDF vectorization and cosine similarity to suggest the top 10 courses
+                based on your search criteria.</p>
             <div class="social-links">
-                <a href="https://github.com/Suparnnayak" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/suparn-nayak/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.kaggle.com/suparnnayak" target="_blank" title="Kaggle"><i class="fab fa-kaggle"></i></a>
+                <a href="https://github.com/Suparnnayak" target="_blank" title="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/suparn-nayak/" target="_blank" title="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://www.kaggle.com/suparnnayak" target="_blank" title="Kaggle"><i
+                        class="fab fa-kaggle"></i></a>
             </div>
         </div>
     </footer>
@@ -507,9 +547,9 @@
     <script>
         // API Configuration
         // Important: Update this to your deployed Render URL once your backend is on Render.
-        const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:' 
-            ? 'http://127.0.0.1:5000/api/predict' 
-            : 'https://your-render-backend-url.onrender.com/api/predict'; // <--- REPLACE THIS BEFORE DEPLOYING
+        const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:'
+            ? 'http://127.0.0.1:5000/api/predict'
+            : 'https://course-ai-v5pp.onrender.com/api/predict'; // <--- REPLACE THIS BEFORE DEPLOYING
 
         document.getElementById('searchForm').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -525,7 +565,7 @@
             searchBtn.disabled = true;
             btnText.style.display = 'none';
             btnLoader.style.display = 'inline-block';
-            
+
             try {
                 const response = await fetch(API_URL, {
                     method: 'POST',
@@ -536,20 +576,20 @@
                 });
 
                 const data = await response.json();
-                
+
                 // Clear previous results
                 gridContainer.innerHTML = '';
                 resultsSection.style.display = 'block';
 
                 if (data.success) {
                     messageEl.textContent = data.message;
-                    
+
                     if (data.courses && data.courses.length > 0) {
                         data.courses.forEach((course, index) => {
                             const card = document.createElement('div');
                             card.className = 'course-card';
                             card.style.animation = `fadeInUp 0.5s ease-out ${index * 0.1}s both`;
-                            
+
                             card.innerHTML = `
                                 <h3 class="course-title">${course['Course Name']}</h3>
                                 <div class="course-meta">
@@ -584,4 +624,5 @@
         });
     </script>
 </body>
+
 </html>

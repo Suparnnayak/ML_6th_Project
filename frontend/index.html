@@ -549,7 +549,7 @@
         // Important: Update this to your deployed Render URL once your backend is on Render.
         const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:'
             ? 'http://127.0.0.1:5000/api/predict'
-            : 'https://course-ai-v5pp.onrender.com/api/predict'; // <--- REPLACE THIS BEFORE DEPLOYING
+            : 'https://course-ai-v5pp.onrender.com/api/predict';
 
         document.getElementById('searchForm').addEventListener('submit', async (e) => {
             e.preventDefault();
